@@ -1,0 +1,23 @@
+name: Code Formatting
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install clang-format
+        run: sudo apt-get install clang-format
+
+      - name: Run clang-format
+        run: clang-format -i --style=file src/*.cpp
