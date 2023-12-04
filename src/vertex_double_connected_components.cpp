@@ -17,7 +17,7 @@ std::function<void(int, int)> dfs = [&](int node, int f) {
             ans.push_back({node});
         }
     } else if (low[node] == dfn[f]) {
-        std::vector<int> component {f, node};
+        std::vector<int> component{f, node};
         while (stack.back() != node) {
             component.push_back(stack.back());
             stack.pop_back();
